@@ -1,0 +1,11 @@
+{
+  "name": "groenneled-website",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/application.css -o ./public/application.css --minify",
+    "watch:css": "tailwindcss -i ./assets/application.css -o ./public/application.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

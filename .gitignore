@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.bundle/
+vendor/bundle/
+
+# Ruby tooling and generated files
+.ruby-lsp/
+*.gem
+/log/
+/tmp/
+/coverage/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# Local agent configuration and instructions
+.agents/
+.claude/
+.codex/
+.github/agents/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.github/copilot-instructions.md
+
+# Logs and temporary files
+*.log
