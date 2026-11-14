@@ -20,12 +20,26 @@
   a:hover .arrow { transform: translateX(4px); }
   .section-title { @apply font-display text-[36px] font-medium leading-[1.08] tracking-[-0.045em] md:text-[52px] lg:text-[60px]; }
   .service-image { @apply h-[230px] w-full object-cover transition duration-700 group-hover:scale-105 md:h-[270px]; }
+  .nav-link { @apply block py-2 transition hover:text-[#6f8a5e]; }
+  .service-section + .service-section { @apply mt-12 border-t border-[#d6d9cd] pt-12; }
+  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:p-4 focus:text-forest; }
 }
+
+a[aria-current="page"] { color: #647b54; font-weight: 700; }
+:focus-visible { outline: 2px solid #81976c; outline-offset: 4px; }
 
 .hero-image {
   background-image: linear-gradient(90deg, rgba(16, 38, 29, .91) 0%, rgba(16, 38, 29, .74) 42%, rgba(16, 38, 29, .18) 100%), url('/images/hero.png');
   background-position: center;
   background-size: cover;
+}
+
+.service-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .service-card:hover .service-icon { background: #173a2d; color: white; }
@@ -41,5 +55,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .service-hero-video { display: none; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }

@@ -1,0 +1,14 @@
+<footer class="bg-[#142f25] text-white">
+  <div class="wrap grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr] md:py-20">
+    <div><a href="/" class="inline-flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center border border-white/40 text-[23px] font-bold">G<span class="text-[#a5bd87]">.</span></span><span class="leading-none"><span class="block text-[16px] font-extrabold tracking-[-0.06em]">GRØNNELED</span><span class="mt-1 block text-[8px] font-bold tracking-[0.19em]">TØMRERENTREPRISE</span></span></a><p class="mt-6 max-w-[270px] text-[13px] leading-[1.8] text-white/60">Godt håndværk, ordentlige løsninger og mennesker i centrum.</p></div>
+    <div><p class="eyebrow mb-5 text-[#a5bd87]">Det laver vi</p><div class="flex flex-col gap-3 text-[13px] text-white/75">
+      <% service_pages.each do |slug, page| %>
+        <a href="/<%= slug %>/"><%= page[:title] %></a>
+      <% end %>
+      <a href="/#om-os">Om Grønneled</a>
+      <a href="/#proces">Sådan arbejder vi</a>
+    </div></div>
+    <div><p class="eyebrow mb-5 text-[#a5bd87]">Kontakt os</p><div class="flex flex-col gap-3 text-[13px] text-white/75"><a href="/kontakt-os/">Lad os tale om dit projekt ↗</a><a href="tel:+4593938735">93 93 87 35</a><a href="mailto:info@groenneled.dk">info@groenneled.dk</a><a href="https://maps.app.goo.gl/qt9ejw4Qv78Cx7Aa9">Mellemmarksvej 5<br>2605 Brøndby</a></div></div>
+  </div>
+  <div class="wrap flex flex-col gap-3 border-t border-white/15 py-6 text-[10px] text-white/50 sm:flex-row sm:justify-between"><span>© <%= Time.now.year %> Grønneled Tømrerentreprise ApS</span><a href="/cookie-politik/">Cookiepolitik</a><span>Bygget med omtanke.</span></div>
+</footer>

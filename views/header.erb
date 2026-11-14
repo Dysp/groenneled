@@ -1,0 +1,39 @@
+<header class="relative z-20 bg-cream">
+  <div class="wrap flex h-[82px] items-center justify-between gap-6">
+    <a href="/" class="flex shrink-0 items-center gap-3 text-forest" aria-label="Grønneled, forsiden">
+      <span class="flex h-10 w-10 items-center justify-center border border-forest/40 text-[23px] font-bold leading-none">G<span class="text-[#8aa36e]">.</span></span>
+      <span class="leading-none"><span class="block text-[16px] font-extrabold tracking-[-0.06em]">GRØNNELED</span><span class="mt-1 block text-[8px] font-bold tracking-[0.19em]">TØMRERENTREPRISE</span></span>
+    </a>
+    <nav aria-label="Hovedmenu" class="hidden items-center gap-7 whitespace-nowrap text-[12px] font-bold lg:flex">
+      <details class="relative">
+        <summary class="cursor-pointer transition hover:text-[#6f8a5e]">Det laver vi</summary>
+        <div class="absolute left-0 top-full mt-5 w-[300px] border border-forest/10 bg-cream p-5 shadow-lg">
+          <a class="nav-link" href="/#ydelser">Alle ydelser</a>
+          <% service_pages.each do |slug, page| %>
+            <a class="nav-link" href="/<%= slug %>/" <%= 'aria-current="page"' if current_page?("/#{slug}/") %>><%= page[:title] %></a>
+          <% end %>
+        </div>
+      </details>
+      <a class="transition hover:text-[#6f8a5e]" href="/#om-os">Om Grønneled</a>
+      <a class="transition hover:text-[#6f8a5e]" href="/#proces">Sådan arbejder vi</a>
+      <a class="transition hover:text-[#6f8a5e]" href="/kontakt-os/" <%= 'aria-current="page"' if current_page?("/kontakt-os/") %>>Kontakt</a>
+    </nav>
+    <div class="hidden items-center gap-7 md:flex">
+      <a href="tel:+4593938735" class="hidden whitespace-nowrap text-[12px] font-bold xl:block"><span class="mr-2 text-[#7b9270]">↗</span> 93 93 87 35</a>
+      <a href="/kontakt-os/" class="button button-dark !min-h-[46px] !gap-6 !px-5">Lad os tale sammen <span class="arrow">↗</span></a>
+    </div>
+    <button type="button" class="flex h-11 w-11 items-center justify-center border border-forest/20 lg:hidden" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Åbn menu"><span class="text-xl" aria-hidden="true">☰</span></button>
+  </div>
+  <nav id="mobile-menu" data-mobile-menu hidden aria-label="Mobilmenu" class="mobile-menu absolute left-0 right-0 top-full max-h-[calc(100dvh-82px)] overflow-y-auto border-t border-forest/10 bg-cream px-6 py-5 shadow-lg lg:hidden">
+    <div class="flex flex-col gap-5 text-sm font-bold">
+      <a href="/#ydelser">Det laver vi</a>
+      <% service_pages.each do |slug, page| %>
+        <a class="pl-4 text-muted" href="/<%= slug %>/" <%= 'aria-current="page"' if current_page?("/#{slug}/") %>><%= page[:title] %></a>
+      <% end %>
+      <a href="/#om-os">Om Grønneled</a>
+      <a href="/#proces">Sådan arbejder vi</a>
+      <a href="/kontakt-os/" <%= 'aria-current="page"' if current_page?("/kontakt-os/") %>>Kontakt</a>
+      <a href="tel:+4593938735">Ring 93 93 87 35 ↗</a>
+    </div>
+  </nav>
+</header>

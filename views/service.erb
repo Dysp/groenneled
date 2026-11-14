@@ -1,0 +1,51 @@
+<main id="main-content">
+  <section class="bg-forest text-white">
+    <div class="grid lg:grid-cols-2">
+      <div class="px-6 py-16 md:px-12 md:py-24 lg:pl-[14.4%] lg:pr-12">
+        <nav aria-label="Brødkrumme" class="mb-12 text-[12px] text-white/65"><a href="/" class="hover:text-white">Forside</a><span class="mx-3" aria-hidden="true">/</span><span aria-current="page"><%= @page[:title] %></span></nav>
+        <p class="eyebrow mb-6 text-[#b8ce9a]"><%= @page[:eyebrow] %></p>
+        <h1 class="section-title max-w-[600px]"><%= @page[:heading] %></h1>
+        <p class="mt-7 max-w-[560px] text-[15px] leading-[1.9] text-white/75"><%= @page[:intro] %></p>
+        <a href="/kontakt-os/" class="button button-light mt-9">Få et uforpligtende tilbud <span class="arrow">↗</span></a>
+      </div>
+      <div class="relative h-[320px] md:h-[420px] lg:h-full lg:min-h-[580px]">
+        <img src="<%= @page[:image] %>" alt="<%= @page[:image_alt] %>" class="h-full min-h-[320px] w-full object-cover md:min-h-[420px] lg:min-h-[580px]">
+        <% if @page[:hero_video] %>
+          <video class="service-hero-video" autoplay muted loop playsinline preload="metadata" poster="<%= @page[:image] %>" aria-hidden="true">
+            <source src="<%= @page[:hero_video] %>" type="video/mp4">
+          </video>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap grid gap-12 py-20 md:py-28 lg:grid-cols-[240px_1fr] lg:gap-20">
+    <aside aria-label="Vores ydelser">
+      <p class="eyebrow mb-5 text-[#81976c]">Det laver vi</p>
+      <nav class="flex flex-col border-t border-[#d6d9cd] text-[13px]">
+        <% service_pages.each do |slug, page| %>
+          <a class="nav-link border-b border-[#d6d9cd] py-4" href="/<%= slug %>/" <%= 'aria-current="page"' if current_page?("/#{slug}/") %>><%= page[:title] %></a>
+        <% end %>
+      </nav>
+    </aside>
+    <div class="max-w-[760px]">
+      <% @page[:sections].each_with_index do |section, index| %>
+        <section class="service-section" aria-labelledby="section-<%= index %>">
+          <p class="eyebrow mb-4 text-[#91a184]"><%= format("%02d", index + 1) %> / <%= @page[:title] %></p>
+          <h2 id="section-<%= index %>" class="font-display text-[28px] font-medium leading-tight tracking-[-.04em] md:text-[36px]"><%= section[:title] %></h2>
+          <% section[:paragraphs].each do |paragraph| %>
+            <p class="mt-5 text-[15px] leading-[1.9] text-muted"><%= paragraph %></p>
+          <% end %>
+          <% if section[:points] %>
+            <dl class="mt-7 grid gap-6 border-l-2 border-[#b8ce9a] pl-6">
+              <% section[:points].each do |title, description| %>
+                <div><dt class="text-[14px] font-bold text-forest"><%= title %></dt><dd class="mt-2 text-[14px] leading-[1.8] text-muted"><%= description %></dd></div>
+              <% end %>
+            </dl>
+          <% end %>
+        </section>
+      <% end %>
+    </div>
+  </div>
+  <%= erb :contact_cta %>
+</main>
